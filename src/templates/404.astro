@@ -1,0 +1,38 @@
+---
+import Layout from "~/layouts/Layout.astro";
+
+type Props = {
+  t: {
+    pageTitle: string;
+    kicker: string;
+    title: string;
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+  };
+};
+
+const { t } = Astro.props;
+---
+
+<Layout title={t.pageTitle}>
+  <div class="grid min-h-screen place-items-center px-6 py-16">
+    <div class="mx-auto max-w-2xl space-y-6 text-center">
+      <p class="text-sm tracking-[0.3em] text-pine-teal uppercase">
+        {t.kicker}
+      </p>
+      <h1 class="text-4xl font-semibold text-hunter-green md:text-5xl">
+        {t.title}
+      </h1>
+      <p class="text-lg text-pine-teal">{t.description}</p>
+      <div class="pt-2">
+        <a
+          class="rounded-full bg-fern px-5 py-2 text-sm font-semibold text-dust-grey"
+          href={t.ctaHref}
+        >
+          {t.ctaLabel}
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
