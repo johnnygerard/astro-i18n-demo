@@ -32,6 +32,16 @@
 /* `@theme inline` is required when referencing CSS custom properties */
 /* @see https://tailwindcss.com/docs/theme#referencing-other-variables */
 @theme inline {
+  /*
+    Color palette: Earthy Forest Hues
+    Source: https://coolors.co/palette/dad7cd-a3b18a-588157-3a5a40-344e41
+  */
+  --color-dust-grey: #dad7cd;
+  --color-dry-sage: #a3b18a;
+  --color-fern: #588157;
+  --color-hunter-green: #3a5a40;
+  --color-pine-teal: #344e41;
+
   /* Typography */
   --font-serif: var(--font-merriweather);
   --font-mono: var(--font-roboto-mono);
