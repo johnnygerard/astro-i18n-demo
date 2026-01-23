@@ -32,4 +32,7 @@
 /* `@theme inline` is required when referencing CSS custom properties */
 /* @see https://tailwindcss.com/docs/theme#referencing-other-variables */
 @theme inline {
+  /* Typography */
+  --font-serif: var(--font-merriweather);
+  --font-mono: var(--font-roboto-mono);
 }
