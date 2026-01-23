@@ -29,7 +29,7 @@ export default defineConfig({
       },
     }),
   ],
-  site: `https://placeholder.example`,
+  site: "https://astro-i18n-demo.mail-25a.workers.dev",
   trailingSlash: "never",
   vite: {
     plugins: [
