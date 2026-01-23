@@ -1,5 +1,11 @@
 ---
-import Layout from "~/layouts/Layout.astro";
+import HomePage from "~/templates/index.astro";
 ---
 
-<Layout />
+<HomePage
+  t={{
+    title: "Welcome to Astro Internationalization Demo",
+    description:
+      "This is a simple demo of internationalization in Astro using components.",
+  }}
+/>

@@ -1,0 +1,21 @@
+---
+import Layout from "~/layouts/Layout.astro";
+
+type Props = {
+  t: {
+    title: string;
+    description: string;
+  };
+};
+
+const { t } = Astro.props;
+---
+
+<Layout>
+  <div class="grid min-h-screen place-items-center">
+    <div class="text-center">
+      <h1>{t.title}</h1>
+      <p>{t.description}</p>
+    </div>
+  </div>
+</Layout>
