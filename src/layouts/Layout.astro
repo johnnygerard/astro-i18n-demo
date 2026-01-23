@@ -1,10 +1,16 @@
 ---
 import { Font } from "astro:assets";
 import "~/styles/globals.css";
+
+type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en-US">
+<html lang={Astro.currentLocale}>
   <head>
     <meta charset="utf-8" />
     <Font cssVariable="--font-merriweather" preload={true} />
@@ -25,7 +31,7 @@ import "~/styles/globals.css";
     />
     <meta name="generator" content={Astro.generator} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Astro Internationalization Demo</title>
+    <title>{title}</title>
   </head>
   <body class="font-serif text-base">
     <slot />
