@@ -2,6 +2,7 @@
 import { Font } from "astro:assets";
 import Header from "~/components/Header.astro";
 import "~/styles/globals.css";
+import { getCurrentLocale } from "~/utils/get-current-locale";
 
 type Props = {
   title: string;
@@ -9,10 +10,11 @@ type Props = {
 };
 
 const { title, description } = Astro.props;
+const currentLocale = getCurrentLocale(Astro);
 ---
 
 <!doctype html>
-<html lang={Astro.currentLocale}>
+<html lang={currentLocale}>
   <head>
     <meta charset="utf-8" />
     <Font cssVariable="--font-merriweather" preload={true} />
