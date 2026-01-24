@@ -1,5 +1,7 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "~/layouts/Layout.astro";
+import { getCurrentLocale } from "~/utils/get-current-locale";
 
 type Props = {
   t: {
@@ -8,11 +10,11 @@ type Props = {
     title: string;
     description: string;
     ctaLabel: string;
-    ctaHref: string;
   };
 };
 
 const { t } = Astro.props;
+const currentLocale = getCurrentLocale(Astro);
 ---
 
 <Layout title={t.pageTitle}>
@@ -26,9 +28,10 @@ const { t } = Astro.props;
       </h1>
       <p class="text-lg text-pine-teal">{t.description}</p>
       <div class="pt-2">
+        {/* Homepage link */}
         <a
           class="rounded-full bg-fern px-5 py-2 text-sm font-semibold text-dust-grey"
-          href={t.ctaHref}
+          href={getRelativeLocaleUrl(currentLocale)}
         >
           {t.ctaLabel}
         </a>
