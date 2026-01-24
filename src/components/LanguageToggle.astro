@@ -1,0 +1,33 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { DEFAULT_LOCALE, LOCALES } from "~/constants/locales";
+
+if (Object.values(LOCALES).length !== 2)
+  throw new Error("This component only supports two locales.");
+
+const { currentLocale, url } = Astro;
+const targetLocale = currentLocale === LOCALES.EN ? LOCALES.DE : LOCALES.EN;
+
+// Compute URL path without locale prefix
+// Note that the homepage ("/", "/de") is an edge case that requires special handling
+const defaultPath =
+  currentLocale === DEFAULT_LOCALE
+    ? url.pathname
+    : url.pathname.replace(`/${currentLocale}`, "") || "/";
+
+const href =
+  defaultPath === "/"
+    ? getRelativeLocaleUrl(targetLocale)
+    : getRelativeLocaleUrl(targetLocale, defaultPath);
+---
+
+<a
+  href={href}
+  hreflang={targetLocale}
+  title={{
+    de: "Switch to German",
+    en: "Wechseln zu Englisch",
+  }[targetLocale]}
+  class="rounded-full border-2 border-hunter-green px-3 py-1 text-sm font-semibold text-hunter-green transition-colors hover:bg-hunter-green hover:text-dust-grey"
+  >{targetLocale.toUpperCase()}</a
+>

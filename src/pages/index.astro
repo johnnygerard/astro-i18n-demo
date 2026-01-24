@@ -1,8 +1,26 @@
 ---
-import Main from "~/components/Main.astro";
-import Layout from "~/layouts/Layout.astro";
+import HomePage from "~/templates/index.astro";
 ---
 
-<Layout>
-  <Main />
-</Layout>
+<HomePage
+  t={{
+    page: {
+      title: "Luna Starling - Personal Site",
+      description:
+        "Stargazer, sound designer, and cosmic storyteller documenting life between midnight skies and city lights.",
+    },
+    personalLabel: "Personal site",
+    title: "Hi, I'm Luna Starling",
+    description:
+      "Stargazer, sound designer, and cosmic storyteller documenting life between midnight skies and city lights.",
+    ctaWork: "See my work",
+    ctaContact: "Get in touch",
+    workTitle: "Selected work",
+    workBody:
+      "From nebula-inspired soundscapes to illustrated travel logs, I craft experiences that feel like a night walk in July.",
+    nowTitle: "Currently",
+    nowBody:
+      "Sketching a zine about meteor showers, scoring a short film, and collecting field notes on nocturnal cafés.",
+    contactLine: "Say hello at ",
+  }}
+/>

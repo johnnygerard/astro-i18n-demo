@@ -1,0 +1,44 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "~/layouts/Layout.astro";
+import { getCurrentLocale } from "~/utils/get-current-locale";
+
+type Props = {
+  t: {
+    page: {
+      title: string;
+      description: string;
+    };
+    kicker: string;
+    title: string;
+    description: string;
+    ctaLabel: string;
+  };
+};
+
+const { t } = Astro.props;
+const currentLocale = getCurrentLocale(Astro);
+---
+
+<Layout description={t.page.description} title={t.page.title}>
+  <div class="px-6 py-16">
+    <div class="mx-auto max-w-2xl space-y-6 text-center">
+      <p class="text-sm tracking-[0.3em] text-pine-teal uppercase">
+        {t.kicker}
+      </p>
+      <h1 class="text-4xl font-semibold text-hunter-green md:text-5xl">
+        {t.title}
+      </h1>
+      <p class="text-lg text-pine-teal">{t.description}</p>
+      <div class="pt-2">
+        {/* Homepage link */}
+        <a
+          class="rounded-full bg-fern px-5 py-2 text-sm font-semibold text-dust-grey"
+          href={getRelativeLocaleUrl(currentLocale)}
+        >
+          {t.ctaLabel}
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

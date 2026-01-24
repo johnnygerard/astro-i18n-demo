@@ -1,0 +1,69 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "~/layouts/Layout.astro";
+import { getCurrentLocale } from "~/utils/get-current-locale";
+
+type Props = {
+  t: {
+    page: {
+      title: string;
+      description: string;
+    };
+    personalLabel: string;
+    title: string;
+    description: string;
+    ctaWork: string;
+    ctaContact: string;
+    workTitle: string;
+    workBody: string;
+    nowTitle: string;
+    nowBody: string;
+    contactLine: string;
+  };
+};
+
+const { t } = Astro.props;
+const currentLocale = getCurrentLocale(Astro);
+---
+
+<Layout description={t.page.description} title={t.page.title}>
+  <div class="px-6 py-16">
+    <div class="mx-auto max-w-2xl space-y-6 text-center">
+      <p class="text-sm tracking-[0.3em] text-pine-teal uppercase">
+        {t.personalLabel}
+      </p>
+      <h1 class="text-4xl font-semibold text-hunter-green md:text-5xl">
+        {t.title}
+      </h1>
+      <p class="text-lg text-pine-teal">{t.description}</p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a
+          class="rounded-full bg-fern px-5 py-2 text-sm font-semibold text-dust-grey"
+          href={getRelativeLocaleUrl(currentLocale, "work")}
+        >
+          {t.ctaWork}
+        </a>
+        <a
+          class="rounded-full border border-dry-sage px-5 py-2 text-sm font-semibold text-hunter-green"
+          href={getRelativeLocaleUrl(currentLocale, "contact")}
+        >
+          {t.ctaContact}
+        </a>
+      </div>
+      <div class="grid gap-6 pt-6 md:grid-cols-2">
+        <section id="work" class="rounded-2xl bg-dust-grey/40 p-5 text-left">
+          <h2 class="text-lg font-semibold text-hunter-green">{t.workTitle}</h2>
+          <p class="text-sm text-pine-teal">{t.workBody}</p>
+        </section>
+        <section class="rounded-2xl bg-dust-grey/40 p-5 text-left">
+          <h2 class="text-lg font-semibold text-hunter-green">{t.nowTitle}</h2>
+          <p class="text-sm text-pine-teal">{t.nowBody}</p>
+        </section>
+      </div>
+      <div id="contact" class="pt-4 text-sm text-pine-teal">
+        {t.contactLine}
+        <span class="text-hunter-green">luna@starling.example</span>
+      </div>
+    </div>
+  </div>
+</Layout>

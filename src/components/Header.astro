@@ -1,0 +1,55 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import LanguageToggle from "~/components/LanguageToggle.astro";
+import { getCurrentLocale } from "~/utils/get-current-locale";
+import { tw } from "~/utils/tw";
+
+const currentLocale = getCurrentLocale(Astro);
+const linkStyle = tw(
+  "rounded-full px-3 py-1 text-hunter-green transition hover:bg-dust-grey/70 focus-visible:outline-offset-2",
+);
+---
+
+<header class="w-full">
+  <div
+    class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-6"
+  >
+    <nav
+      aria-label="Primary"
+      class="flex flex-wrap items-center gap-2 rounded-full border border-dust-grey/70 bg-dust-grey/40 px-2 py-1 text-sm font-semibold"
+    >
+      <a
+        class={linkStyle}
+        href={getRelativeLocaleUrl(currentLocale)}
+        rel="home"
+      >
+        {
+          {
+            en: "Home",
+            de: "Startseite",
+          }[currentLocale]
+        }
+      </a>
+      <a class={linkStyle} href={getRelativeLocaleUrl(currentLocale, "work")}>
+        {
+          {
+            en: "Work",
+            de: "Arbeit",
+          }[currentLocale]
+        }
+      </a>
+      <a
+        class={linkStyle}
+        href={getRelativeLocaleUrl(currentLocale, "contact")}
+      >
+        {
+          {
+            en: "Contact",
+            de: "Kontakt",
+          }[currentLocale]
+        }
+      </a>
+    </nav>
+    <LanguageToggle />
+  </div>
+</header>

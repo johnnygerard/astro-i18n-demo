@@ -1,11 +1,23 @@
 ---
+import { Font } from "astro:assets";
+import Header from "~/components/Header.astro";
 import "~/styles/globals.css";
+import { getCurrentLocale } from "~/utils/get-current-locale";
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+const currentLocale = getCurrentLocale(Astro);
 ---
 
 <!doctype html>
-<html lang="en-US">
+<html lang={currentLocale}>
   <head>
     <meta charset="utf-8" />
+    <Font cssVariable="--font-merriweather" preload={true} />
     <link
       rel="icon"
       href="/assets/images/favicon-light.png"
@@ -22,9 +34,16 @@ import "~/styles/globals.css";
     />
     <meta name="generator" content={Astro.generator} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Astro 5 Starter</title>
+    <meta name="description" content={description} />
+    <title>{title}</title>
   </head>
-  <body>
-    <slot />
+  <body class="font-serif text-base">
+    {/* This wrapper prevents a body overflow in mobile browsers. */}
+    <div class="flex min-h-screen flex-col">
+      <Header />
+      <main class="grid flex-1 items-center">
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
