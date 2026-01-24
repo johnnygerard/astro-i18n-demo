@@ -8,12 +8,15 @@ if (Object.values(LOCALES).length !== 2)
 const { currentLocale, url } = Astro;
 const targetLocale = currentLocale === LOCALES.EN ? LOCALES.DE : LOCALES.EN;
 
+// Strip `.html` file extension from URL path
+const path = url.pathname.replace(/\.html$/, "");
+
 // Compute URL path without locale prefix
 // Note that the homepage ("/", "/de") is an edge case that requires special handling
 const defaultPath =
   currentLocale === DEFAULT_LOCALE
-    ? url.pathname
-    : url.pathname.replace(`/${currentLocale}`, "") || "/";
+    ? path
+    : path.replace(`/${currentLocale}`, "") || "/";
 
 const href =
   defaultPath === "/"
