@@ -9,6 +9,7 @@ const { currentLocale, url } = Astro;
 const targetLocale = currentLocale === LOCALES.EN ? LOCALES.DE : LOCALES.EN;
 
 // Compute URL path without locale prefix
+// Note that the homepage ("/", "/de") is an edge case that requires special handling
 const defaultPath =
   currentLocale === DEFAULT_LOCALE
     ? url.pathname
