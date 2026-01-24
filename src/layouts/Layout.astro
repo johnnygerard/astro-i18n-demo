@@ -1,5 +1,6 @@
 ---
 import { Font } from "astro:assets";
+import Header from "~/components/Header.astro";
 import "~/styles/globals.css";
 
 type Props = {
@@ -36,6 +37,7 @@ const { title } = Astro.props;
   <body class="font-serif text-base">
     {/* This wrapper prevents a body overflow in mobile browsers. */}
     <div class="flex min-h-screen flex-col">
+      <Header />
       <main class="grid flex-1 items-center">
         <slot />
       </main>
