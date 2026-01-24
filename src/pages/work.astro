@@ -1,0 +1,45 @@
+---
+import WorkPage from "~/templates/work.astro";
+---
+
+<WorkPage
+  t={{
+    pageTitle: "Work - Luna Starling",
+    kicker: "Selected work",
+    title: "Projects & collaborations",
+    description:
+      "A curated set of cosmic stories, immersive audio, and visual journeys crafted with thoughtful teams.",
+    projectsTitle: "Featured projects",
+    projects: [
+      {
+        title: "Night Tide Soundscape",
+        description:
+          "An ambient album built from harbor recordings and cello loops, mixed for deep-listen headphones.",
+        tags: ["Audio", "Field recording", "Mixing"],
+      },
+      {
+        title: "Atlas of Quiet Cities",
+        description:
+          "Illustrated travel essays combining urban sketches, interviews, and twilight photography.",
+        tags: ["Editorial", "Illustration", "Storytelling"],
+      },
+      {
+        title: "Meteor Light Installation",
+        description:
+          "A gallery installation syncing light sculptures with spatial audio and projected stardust.",
+        tags: ["Installation", "Lighting", "Direction"],
+      },
+    ],
+    servicesTitle: "What I do",
+    services: [
+      "Sound design and original scoring for film and podcasts",
+      "Editorial illustration and visual narratives",
+      "Creative direction for immersive experiences",
+    ],
+    availabilityTitle: "Availability",
+    availabilityBody:
+      "Booking select collaborations for spring. Tell me about your story, timeline, and the feeling you want to create.",
+    ctaLabel: "Let's talk",
+    ctaHref: "/#contact",
+  }}
+/>
