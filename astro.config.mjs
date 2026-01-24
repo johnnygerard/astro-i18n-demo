@@ -12,16 +12,6 @@ export default defineConfig({
   },
   experimental: {
     fonts: [
-      // Roboto Mono: monospace typeface
-      // @see https://fonts.google.com/specimen/Roboto+Mono/about
-      {
-        cssVariable: "--font-roboto-mono",
-        name: "Roboto Mono",
-        provider: fontProviders.google(),
-        styles: ["normal", "italic"],
-        subsets: ["latin"],
-        weights: ["100 700"],
-      },
       // Merriweather: serif typeface
       // @see https://fonts.google.com/specimen/Merriweather/about
       {
