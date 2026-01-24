@@ -24,6 +24,10 @@ const href =
 <a
   href={href}
   hreflang={targetLocale}
+  title={{
+    de: "Switch to German",
+    en: "Wechseln zu Englisch",
+  }[targetLocale]}
   class="rounded-full border-2 border-hunter-green px-3 py-1 text-sm font-semibold text-hunter-green transition-colors hover:bg-hunter-green hover:text-dust-grey"
   >{targetLocale.toUpperCase()}</a
 >
