@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { DEFAULT_LOCALE, LOCALES } from "~/constants/locales";
 
 if (Object.values(LOCALES).length !== 2)
@@ -14,9 +15,9 @@ const defaultPath =
     : url.pathname.replace(`/${currentLocale}`, "") || "/";
 
 const href =
-  targetLocale === DEFAULT_LOCALE
-    ? defaultPath
-    : `/${targetLocale}${defaultPath === "/" ? "" : defaultPath}`;
+  defaultPath === "/"
+    ? getRelativeLocaleUrl(targetLocale)
+    : getRelativeLocaleUrl(targetLocale, defaultPath);
 ---
 
 <a
