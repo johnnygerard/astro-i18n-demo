@@ -5,7 +5,10 @@ import { getCurrentLocale } from "~/utils/get-current-locale";
 
 type Props = {
   t: {
-    pageTitle: string;
+    page: {
+      title: string;
+      description: string;
+    };
     kicker: string;
     title: string;
     description: string;
@@ -17,7 +20,7 @@ const { t } = Astro.props;
 const currentLocale = getCurrentLocale(Astro);
 ---
 
-<Layout title={t.pageTitle}>
+<Layout description={t.page.description} title={t.page.title}>
   <div class="px-6 py-16">
     <div class="mx-auto max-w-2xl space-y-6 text-center">
       <p class="text-sm tracking-[0.3em] text-pine-teal uppercase">

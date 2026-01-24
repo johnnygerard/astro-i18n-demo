@@ -4,7 +4,10 @@ import NotFoundPage from "~/templates/404.astro";
 
 <NotFoundPage
   t={{
-    pageTitle: "404 Not Found",
+    page: {
+      title: "404 Not Found",
+      description: "Sorry, the page you’re looking for drifted out of view.",
+    },
     kicker: "Lost in orbit",
     title: "404 Not Found",
     description: "Sorry, the page you’re looking for drifted out of view.",
