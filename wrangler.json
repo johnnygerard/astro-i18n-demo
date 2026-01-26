@@ -4,7 +4,7 @@
     "binding": "ASSETS",
     "directory": "dist",
     "html_handling": "drop-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "none"
   },
   "compatibility_date": "2026-01-18",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
