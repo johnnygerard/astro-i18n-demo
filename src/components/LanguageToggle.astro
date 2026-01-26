@@ -5,20 +5,26 @@ import { LOCALES } from "~/constants/locales";
 if (Object.values(LOCALES).length !== 2)
   throw new Error("This component only supports two locales.");
 
-const { currentLocale, url } = Astro;
+const { currentLocale, locals, url } = Astro;
 const targetLocale = currentLocale === LOCALES.EN ? LOCALES.DE : LOCALES.EN;
 
 // Strip `.html` file extension from URL path
-const path = url.pathname.replace(/\.html$/, "");
+const path = (locals.languageToggleOriginalPathname ?? url.pathname).replace(
+  /\.html$/,
+  "",
+);
 
 // Compute URL path without locale prefix
 // Note that the homepage ("/en", "/de") is an edge case that requires special handling
 const neutralPath = path.replace(`/${currentLocale}`, "");
 
-const href =
-  neutralPath === ""
-    ? getRelativeLocaleUrl(targetLocale)
-    : getRelativeLocaleUrl(targetLocale, neutralPath);
+const shouldLinkToHomepage =
+  neutralPath === "" ||
+  (locals.languageToggleOriginalPathname && !locals.hasSupportedLocalePrefix);
+
+const href = shouldLinkToHomepage
+  ? getRelativeLocaleUrl(targetLocale)
+  : getRelativeLocaleUrl(targetLocale, neutralPath);
 ---
 
 <a

@@ -11,7 +11,12 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
   if (response.status !== 404) return response;
 
   const firstPathSegment = context.url.pathname.split("/")[1];
-  const targetLocale = isSupportedLocale(firstPathSegment)
+  const hasSupportedLocalePrefix = isSupportedLocale(firstPathSegment);
+
+  context.locals.hasSupportedLocalePrefix = hasSupportedLocalePrefix;
+  context.locals.languageToggleOriginalPathname = context.url.pathname;
+
+  const targetLocale = hasSupportedLocalePrefix
     ? firstPathSegment
     : isSupportedLocale(context.preferredLocale)
       ? context.preferredLocale
