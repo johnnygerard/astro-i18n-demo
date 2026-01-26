@@ -47,6 +47,12 @@ export default defineConfig({
         const isRoot = pageURL.replace(/\/$/, "") === site;
         return !isRoot;
       },
+      namespaces: {
+        image: false,
+        news: false,
+        xhtml: true,
+        video: false,
+      },
     }),
   ],
   site,
