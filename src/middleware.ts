@@ -31,5 +31,12 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
       ? context.preferredLocale
       : DEFAULT_LOCALE;
 
-  return context.rewrite(getRelativeLocaleUrl(targetLocale, "/404"));
+  const notFoundResponse = await context.rewrite(
+    getRelativeLocaleUrl(targetLocale, "/404"),
+  );
+
+  return new Response(notFoundResponse.body, {
+    status: 404,
+    headers: notFoundResponse.headers,
+  });
 };
