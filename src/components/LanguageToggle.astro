@@ -9,7 +9,7 @@ const { currentLocale, locals, url } = Astro;
 const targetLocale = currentLocale === LOCALES.EN ? LOCALES.DE : LOCALES.EN;
 
 // Strip `.html` file extension from URL path
-const path = (locals.languageToggleOriginalPathname ?? url.pathname).replace(
+const path = (locals.requestPathBeforeRewrite ?? url.pathname).replace(
   /\.html$/,
   "",
 );
@@ -20,7 +20,7 @@ const neutralPath = path.replace(`/${currentLocale}`, "");
 
 const shouldLinkToHomepage =
   neutralPath === "" ||
-  (locals.languageToggleOriginalPathname && !locals.hasSupportedLocalePrefix);
+  (locals.requestPathBeforeRewrite && !locals.requestHasSupportedLocale);
 
 const href = shouldLinkToHomepage
   ? getRelativeLocaleUrl(targetLocale)
