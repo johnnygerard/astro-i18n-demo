@@ -3,6 +3,10 @@
 ![project status](https://img.shields.io/badge/project_status-active-success?style=for-the-badge)
 [![live site](https://img.shields.io/badge/live_site-blue?style=for-the-badge)](https://astro-i18n-demo.mail-25a.workers.dev/)
 
+## Overview
+
+This demo project showcases a multilingual website for German and English speakers using [Astro i18n](https://docs.astro.build/en/guides/internationalization/) capabilities and [Cloudflare Workers](https://workers.cloudflare.com/) for hosting.
+
 ## Tech Stack
 
 ### Frontend
@@ -13,6 +17,59 @@
 ### Backend
 
 - **Hosting**: [Cloudflare Workers](https://workers.cloudflare.com/)
+
+## Routing
+
+The root page (`/`) uses [Astro middleware](https://docs.astro.build/en/guides/middleware/) to read the `Accept-Language` header and redirect users to the most appropriate localized version of the site. If no match is found, the user is redirected to the language selection page (`/select-language`).
+
+Astro middleware is also used to serve localized 404 pages.
+
+## URL Structure
+
+The current project uses subdirectory-based localization with the following URL structure:
+
+- Home page:
+  - English: [/en](https://astro-i18n-demo.mail-25a.workers.dev/en)
+  - German: [/de](https://astro-i18n-demo.mail-25a.workers.dev/de)
+- Work page:
+  - English: [/en/work](https://astro-i18n-demo.mail-25a.workers.dev/en/work)
+  - German: [/de/work](https://astro-i18n-demo.mail-25a.workers.dev/de/work)
+
+Note that the contact pages ([/en/contact](https://astro-i18n-demo.mail-25a.workers.dev/en/contact) and [/de/contact](https://astro-i18n-demo.mail-25a.workers.dev/de/contact))
+have been omitted to demonstrate the handling of localized 404 pages.
+
+## Sitemap
+
+The following sitemap is automatically generated using the [Astro sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/) integration:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://astro-i18n-demo.mail-25a.workers.dev/de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.mail-25a.workers.dev/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.mail-25a.workers.dev/en"/>
+  </url>
+  <url>
+    <loc>https://astro-i18n-demo.mail-25a.workers.dev/de/work</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.mail-25a.workers.dev/de/work"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.mail-25a.workers.dev/en/work"/>
+  </url>
+  <url>
+    <loc>https://astro-i18n-demo.mail-25a.workers.dev/en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.mail-25a.workers.dev/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.mail-25a.workers.dev/en"/>
+  </url>
+  <url>
+    <loc>https://astro-i18n-demo.mail-25a.workers.dev/en/work</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.mail-25a.workers.dev/de/work"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.mail-25a.workers.dev/en/work"/>
+  </url>
+  <url>
+    <loc>https://astro-i18n-demo.mail-25a.workers.dev/select-language</loc>
+  </url>
+</urlset>
+```
 
 ## How to Update
 
