@@ -45,7 +45,28 @@ export default defineConfig({
       },
       filter: (pageURL) => {
         const isRoot = pageURL.replace(/\/$/, "") === site;
-        return !isRoot;
+        const isLanguageSelector = pageURL === `${site}/select-language`;
+        return !isRoot && !isLanguageSelector;
+      },
+      // Add x-default hreflang links
+      serialize: (item) => {
+        if (!item.links) throw new Error("Missing links for sitemap item");
+        const defaultLink = item.links.find(
+          (link) => link.lang === DEFAULT_LOCALE,
+        );
+
+        if (!defaultLink) throw new Error("Missing link for default locale");
+
+        // Mutation is avoided because it causes duplicate links in the sitemap.
+        item.links = [
+          ...item.links,
+          {
+            lang: "x-default",
+            url: defaultLink.url,
+          },
+        ];
+
+        return item;
       },
       namespaces: {
         image: false,
