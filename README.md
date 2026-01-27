@@ -21,7 +21,7 @@ This demo project showcases a multilingual website for German and English speake
 
 ## Routing
 
-The root page (`/`) uses [Astro middleware](https://docs.astro.build/en/guides/middleware/) to read the `Accept-Language` header and redirect users to the most appropriate localized version of the site. If no match is found, the user is redirected to the language selection page (`/select-language`).
+The [root page](https://astro-i18n-demo.mail-25a.workers.dev/) uses [Astro middleware](https://docs.astro.build/en/guides/middleware/) to read the `Accept-Language` header and redirect users to the most appropriate localized version of the site. If no match is found, the user is redirected to the [language selection page](https://astro-i18n-demo.mail-25a.workers.dev/select-language).
 
 Astro middleware is also used to serve localized 404 pages.
 
