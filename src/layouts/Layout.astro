@@ -12,6 +12,7 @@ type Props = {
 
 const { title, description } = Astro.props;
 const currentLocale = getCurrentLocale(Astro);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -20,6 +21,7 @@ const currentLocale = getCurrentLocale(Astro);
     <meta charset="utf-8" />
     <Font cssVariable="--font-merriweather" preload={true} />
     <Favicon />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
