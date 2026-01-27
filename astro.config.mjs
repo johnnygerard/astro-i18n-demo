@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 import { DEFAULT_LOCALE, LOCALES } from "./src/constants/locales";
 
+const site = "https://astro-i18n-demo.mail-25a.workers.dev";
+
 // https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
   adapter: cloudflare(),
@@ -28,7 +30,7 @@ export default defineConfig({
     defaultLocale: DEFAULT_LOCALE,
     locales: Object.values(LOCALES),
     routing: {
-      prefixDefaultLocale: false,
+      prefixDefaultLocale: true,
       redirectToDefaultLocale: false,
     },
   },
@@ -41,9 +43,19 @@ export default defineConfig({
           [LOCALES.EN]: LOCALES.EN,
         },
       },
+      filter: (pageURL) => {
+        const isRoot = pageURL.replace(/\/$/, "") === site;
+        return !isRoot;
+      },
+      namespaces: {
+        image: false,
+        news: false,
+        xhtml: true,
+        video: false,
+      },
     }),
   ],
-  site: "https://astro-i18n-demo.mail-25a.workers.dev",
+  site,
   trailingSlash: "never",
   vite: {
     plugins: [
