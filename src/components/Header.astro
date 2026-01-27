@@ -3,8 +3,11 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import LanguageToggle from "~/components/LanguageToggle.astro";
 import type { Locale } from "~/types/locale";
 import { getCurrentLocale } from "~/utils/get-current-locale";
+import { getCurrentPath } from "~/utils/get-current-path";
+import { tw } from "~/utils/tw";
 
 const currentLocale = getCurrentLocale(Astro);
+const currentPath = getCurrentPath(Astro);
 
 const navLinks: Array<{
   href: string;
@@ -47,7 +50,13 @@ const navLinks: Array<{
       {
         navLinks.map(({ href, rel, labels }) => (
           <a
-            class="rounded-full px-3 py-1 text-hunter-green transition hover:bg-dust-grey/70 focus-visible:outline-offset-2"
+            class={tw([
+              "rounded-full px-3 py-1 text-hunter-green transition",
+              "hover:bg-dust-grey/70 focus-visible:outline-offset-2",
+              "aria-[current=page]:bg-dust-grey/70",
+              "aria-[current=page]:text-hunter-green",
+            ])}
+            aria-current={href === currentPath ? "page" : null}
             href={href}
             rel={rel}
           >
