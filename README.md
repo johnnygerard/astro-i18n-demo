@@ -1,7 +1,7 @@
 # Astro Internationalization Demo
 
 ![project status](https://img.shields.io/badge/project_status-active-success?style=for-the-badge)
-[![live site](https://img.shields.io/badge/live_site-blue?style=for-the-badge)](https://astro-i18n-demo.mail-25a.workers.dev/)
+[![live site](https://img.shields.io/badge/live_site-blue?style=for-the-badge)](https://astro-i18n-demo.jgerard.workers.dev/)
 [![Lighthouse report](https://img.shields.io/badge/lighthouse-F44B21?style=for-the-badge&logo=lighthouse&logoColor=fff)](https://googlechrome.github.io/lighthouse/viewer/?gist=c241a42aaa1e64209125e7c2154186c2)
 
 ## Overview
@@ -21,7 +21,7 @@ This demo project showcases a multilingual website for German and English speake
 
 ## Routing
 
-The [root page](https://astro-i18n-demo.mail-25a.workers.dev/) uses [Astro middleware](https://docs.astro.build/en/guides/middleware/) to read the `Accept-Language` header and redirect users to the most appropriate localized version of the site. If no match is found, the user is redirected to the [language selection page](https://astro-i18n-demo.mail-25a.workers.dev/select-language).
+The [root page](https://astro-i18n-demo.jgerard.workers.dev/) uses [Astro middleware](https://docs.astro.build/en/guides/middleware/) to read the `Accept-Language` header and redirect users to the most appropriate localized version of the site. If no match is found, the user is redirected to the [language selection page](https://astro-i18n-demo.jgerard.workers.dev/select-language).
 
 Astro middleware is also used to serve localized 404 pages.
 
@@ -30,13 +30,13 @@ Astro middleware is also used to serve localized 404 pages.
 The current project uses subdirectory-based localization with the following URL structure:
 
 - Home page:
-  - English: [/en](https://astro-i18n-demo.mail-25a.workers.dev/en)
-  - German: [/de](https://astro-i18n-demo.mail-25a.workers.dev/de)
+  - English: [/en](https://astro-i18n-demo.jgerard.workers.dev/en)
+  - German: [/de](https://astro-i18n-demo.jgerard.workers.dev/de)
 - Work page:
-  - English: [/en/work](https://astro-i18n-demo.mail-25a.workers.dev/en/work)
-  - German: [/de/work](https://astro-i18n-demo.mail-25a.workers.dev/de/work)
+  - English: [/en/work](https://astro-i18n-demo.jgerard.workers.dev/en/work)
+  - German: [/de/work](https://astro-i18n-demo.jgerard.workers.dev/de/work)
 
-Note that the contact pages ([/en/contact](https://astro-i18n-demo.mail-25a.workers.dev/en/contact) and [/de/contact](https://astro-i18n-demo.mail-25a.workers.dev/de/contact))
+Note that the contact pages ([/en/contact](https://astro-i18n-demo.jgerard.workers.dev/en/contact) and [/de/contact](https://astro-i18n-demo.jgerard.workers.dev/de/contact))
 have been omitted to demonstrate the handling of localized 404 pages.
 
 ## Sitemap
@@ -48,28 +48,28 @@ The following sitemap is automatically generated using the [Astro sitemap](https
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://astro-i18n-demo.mail-25a.workers.dev/de</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.mail-25a.workers.dev/de" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.mail-25a.workers.dev/en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://astro-i18n-demo.mail-25a.workers.dev/en" />
+    <loc>https://astro-i18n-demo.jgerard.workers.dev/de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.jgerard.workers.dev/de" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.jgerard.workers.dev/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://astro-i18n-demo.jgerard.workers.dev/en" />
   </url>
   <url>
-    <loc>https://astro-i18n-demo.mail-25a.workers.dev/de/work</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.mail-25a.workers.dev/de/work" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.mail-25a.workers.dev/en/work" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://astro-i18n-demo.mail-25a.workers.dev/en/work" />
+    <loc>https://astro-i18n-demo.jgerard.workers.dev/de/work</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.jgerard.workers.dev/de/work" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.jgerard.workers.dev/en/work" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://astro-i18n-demo.jgerard.workers.dev/en/work" />
   </url>
   <url>
-    <loc>https://astro-i18n-demo.mail-25a.workers.dev/en</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.mail-25a.workers.dev/de" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.mail-25a.workers.dev/en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://astro-i18n-demo.mail-25a.workers.dev/en" />
+    <loc>https://astro-i18n-demo.jgerard.workers.dev/en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.jgerard.workers.dev/de" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.jgerard.workers.dev/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://astro-i18n-demo.jgerard.workers.dev/en" />
   </url>
   <url>
-    <loc>https://astro-i18n-demo.mail-25a.workers.dev/en/work</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.mail-25a.workers.dev/de/work" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.mail-25a.workers.dev/en/work" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://astro-i18n-demo.mail-25a.workers.dev/en/work" />
+    <loc>https://astro-i18n-demo.jgerard.workers.dev/en/work</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://astro-i18n-demo.jgerard.workers.dev/de/work" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://astro-i18n-demo.jgerard.workers.dev/en/work" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://astro-i18n-demo.jgerard.workers.dev/en/work" />
   </url>
 </urlset>
 ```
